@@ -13,7 +13,7 @@ void Encrypt(string inputText, int shift) {
             // Check for uppercase or lowercase
             if(s<'a') {
                 s+=shift;           // Shift ascii value right
-                if(s>'Z') s-=26;    // If shift exceeds, subtract to start from 'A'
+                if(s>'Z') s-=26;    // If shift exceeds z, cycle start from a
             } else {
                 s+=shift;           // Same procedure as above
                 if(s>'z') s-=26;
@@ -35,8 +35,8 @@ void Decrypt(string inputText, int shift) {
 
             // Check for uppercase or lowercase
             if(s<'a') {
-                s-=shift;           // Shift ascii value right
-                if(s<'A') s+=26;    // If shift exceeds, subtract to start from 'A'
+                s-=shift;           // Shift ascii value left
+                if(s<'A') s+=26;    // If shift preceeds a, cycle back from z
             } else {
                 s-=shift;           // Same procedure as above
                 if(s<'a') s+=26;
